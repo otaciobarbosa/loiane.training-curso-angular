@@ -1,3 +1,4 @@
+import { CursosService } from './cursos.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,12 +8,13 @@ import { Component } from '@angular/core';
 })
 export class CursosComponent {
  nomePortal: string;
-
-cursos: string[] = ['Java','Ext JS','Angular'];
-
- constructor(){
+ cursos: string[];
+ 
+ constructor(private CursosService : CursosService ){
   this.nomePortal = 'https://loiane.training/';
 
+  // let servico = new CursosService();
+  this.cursos = this.CursosService.getCursos();
  }
   
 }
